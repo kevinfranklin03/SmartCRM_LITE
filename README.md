@@ -1,71 +1,92 @@
-# Getting Started with Create React App
+# 🚀 SmartCRM Lite
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SmartCRM Lite is a lightweight, Firebase-powered CRM system designed for lead tracking, status workflows, and AI-powered note analysis.
 
-## Available Scripts
 
-In the project directory, you can run:
+## 🚀 Video Demo
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://github.com/user-attachments/assets/5ebbd02e-9c6b-433f-b36e-c5bc0f62e53c
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ✨ Features
 
-### `npm run build`
+- 🔄 **Real-time lead management** with Firestore
+- 📊 **Status tracking**: New → Contacted → Closed
+- 🧠 **AI-powered lead scoring** using Hugging Face (`facebook/bart-large-cnn`)
+- 📝 Notes field with dynamic score generation
+- 🔍 Filter leads by status
+- 🎯 Responsive UI built with Tailwind CSS
+- 🔐 Firebase Auth-ready (optional upgrade)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧠 How Lead Scoring Works
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Lead notes are summarized by Hugging Face's `bart-large-cnn` model. The score is calculated by detecting meaningful keywords like:
 
-### `npm run eject`
+- `interested`, `demo`, `budget`, `follow-up`
+- Custom phrases like `looking to compare`, `ready to purchase`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This gives you a smart, context-aware ranking from 10 to 100.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠 Tech Stack
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Layer         | Tech                       |
+|---------------|----------------------------|
+| Frontend      | React.js + Tailwind CSS    |
+| Backend       | Firebase Firestore         |
+| AI Scoring    | Hugging Face Inference API |
+| Auth (Optional)| Firebase Auth             |
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🧪 Sample Lead Input
 
-### Code Splitting
+```json
+{
+  "name": "Sophie Miles",
+  "email": "sophie@fastdata.io",
+  "campaign": "Q3 Product Demo",
+  "notes": "Sophie asked for a personalized demo next week. Mentioned budget has been approved. Follow-up scheduled for Tuesday."
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
 
-### Analyzing the Bundle Size
+## 🧪 How to Run Locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## 1. Clone the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
 
-### Advanced Configuration
+git clone https://github.com/your-username/smartcrm-lite.git
+cd smartcrm-lite
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
 
-### Deployment
+## 2. Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 3. Configure Firebase And Hugging Face API
+### Create a .env file
+```bash
 
-### `npm run build` fails to minify
+REACT_APP_FIREBASE_API_KEY=your_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+REACT_APP_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+REACT_APP_FIREBASE_MSG_SENDER_ID=your_msg_sender_id
+REACT_APP_FIREBASE_APP_ID=your_app_id
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# SmartCRM_LITE
+REACT_APP_HF_TOKEN=hf_your_huggingface_token
+
+```
+## 4. Start the app
+npm start
